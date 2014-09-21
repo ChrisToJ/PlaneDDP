@@ -6,7 +6,7 @@ shinyUI(pageWithSidebar(
     headerPanel("Calculation of the best-fitting 3D plane defined by 5 points"),
     sidebarPanel(
         h5("Coordinates:"),
-        p("Please provide your input like shown below:"),
+        p("Please provide your input as shown below:"),
         p("x-coordinate,y-coordinate,z-coordinate"),
         textInput(inputId="P1", label = "Point 1", value=paste(round(runif(3)*c(5,5,1),2), collapse=",")),
         textInput(inputId="P2", label = "Point 2", value=paste(round(runif(3)*c(5,5,1),2), collapse=",")),
@@ -33,7 +33,7 @@ shinyUI(pageWithSidebar(
                                points."),
                              h5("Input"),
                              p("For each of the five points the x-, y-, and z-coordinates are required. 
-                                The numbers should be separated by a ',' 
+                                The numbers should be separated by a single ',' 
                                 (as shown on the left panel with randomly generated initial values).
                                 The points should not be positioned on a line since in this case the 3D plane would not be defined."),
                              p("For the 3D visualisation the point size can be adjusted."),

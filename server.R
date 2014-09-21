@@ -27,12 +27,6 @@ cat("This App calculates the best fitting plane through a set of 5 points...\n")
 
 shinyServer(
     function(input, output, session) {
-        
-        p1 <- reactive(str2vec(input$P1))
-        p2 <- reactive(str2vec(input$P2))
-        p3 <- reactive(str2vec(input$P3))
-        p4 <- reactive(str2vec(input$P4))
-        p5 <- reactive(str2vec(input$P5))
         Matrix <- reactive({
             df <- data.frame(
                 Point      = cbind(str2vec(input$P1),
@@ -54,12 +48,6 @@ shinyServer(
             df
         })
         output$res <- renderTable({result()})
-        
-        output$text1 <- renderText(paste(p1(), collapse=", "))
-        output$text2 <- renderText(paste(p2(), collapse=", "))
-        output$text3 <- renderText(paste(p3(), collapse=", "))
-        output$text4 <- renderText(paste(p4(), collapse=", "))
-        output$text5 <- renderText(paste(p5(), collapse=", "))
         
         output$myWebGL <- renderWebGL({
             mat <- result()
